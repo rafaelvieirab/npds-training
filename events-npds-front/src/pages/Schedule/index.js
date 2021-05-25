@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
+
 import api from '../../service/api';
+import Header from "../../components/Header/index";
+import ListItem from "../../components/ListItem";
 
 const PAGE_NUMBER = 0;
 const PAGE_SIZE = 50;
@@ -11,7 +14,7 @@ const Schedule = () => {
   const { id } = useParams();
 
   const history = useHistory();
-  
+
   useEffect(async () => {
     try {
       const token = localStorage.getItem("@events-npds/token");
@@ -29,21 +32,12 @@ const Schedule = () => {
   }, []);
 
   return (
-    <div>
-      <header>
-        <button type="button" onClick={history.pop}>Voltar para Eventos </button>
-        <h1>Schedule</h1>
-        <a href={`/events/${id}/schedule/new`}>Criar nova Programação</a>
-      </header>
-      <ul>
-        {
-          schedules.map(schedule =>
-            <li key={schedule.id}>
-              {schedule.name}
-            </li>
-          )
-        }
-      </ul>
+    <div className="container">
+      <Header title="Schedule" link={`/events/${id}/schedule/new`} />
+      
+      <dl className="list">
+        { schedules.map(schedule => <ListItem item={schedule} /> ) }
+      </dl>
     </div>
   );
 }

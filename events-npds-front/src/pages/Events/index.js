@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react'
 
 import api from '../../service/api'
 
+import '../../global.css';
+import Header from '../../components/Header/index';
+import ListItem from '../../components/ListItem';
+
 const Events = () => {
   const [events, setEvents] = useState([]);
 
@@ -29,19 +33,12 @@ const Events = () => {
   }, [])
 
   return (
-    <div>
-      <h1>Events</h1>
-      <a href="/events/new">Criar Evento</a>
-      <ul>
-        {
-          events.map((item) =>
-            <li key={item.id}>
-              {item.name} - {new Date(item.beginDate).toLocaleDateString()} - {new Date(item.endDate).toLocaleDateString()}
-              <a href={`/events/${item.id}/schedule`}>Programação</a>
-            </li>
-          )
-        }
-      </ul>
+    <div className="container">
+      <Header title="Eventos" link="/events/new"/>
+
+      <dl className="list">
+        { events.map(event => <ListItem item={event} isEvent={true} /> )}
+      </dl>
     </div>
   )
 }

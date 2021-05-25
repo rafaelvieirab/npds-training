@@ -1,0 +1,26 @@
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer button {
+  width: 120px;
+  height: 36px;
+  margin-top: 20px;
+  color: var(--bg-purple);
+  background-color: var(--text-light);
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+footer button:disabled {
+  filter: grayscale(60%);
+}
+
+footer button:hover:not(:disabled) {
+  color: var(--text-light);
+  background-color: #7278A2;
+}

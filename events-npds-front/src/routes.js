@@ -11,18 +11,23 @@ const Routes = () => (
     <Route exact path="/login">
       <Login/>
     </Route>
+
     <Route exact path="/home">
       <Events/>
     </Route>
+
     <Route exact path="/events/new">
       <EventsForm/>
     </Route>
+
     <Route exact path="/events/:id/schedule">
       <Schedule/>
     </Route>
+
     <Route exact path="/events/:id/schedule/new">
       <ScheduleForm/>
     </Route>
+
   </Router>
 )
 

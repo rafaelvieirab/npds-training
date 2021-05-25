@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import api from '../../../service/api'
+import Header from '../../../components/Header';
+import FooterForm from '../../../components/FooterForm';
 
 const EventForm = () => {
 
@@ -14,9 +16,21 @@ const EventForm = () => {
 
   const history = useHistory();
 
+  function areFieldsValid() {
+    return name.length > 3 &&
+      description.length > 3 &&
+      organizer.length > 3 &&
+      localization.length > 3;
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
+    if(!areFieldsValid()) {
+      alert('Campos Inválidos');
+      return;
+    }
+
     try {
       await api.post("/events", {
         name,
@@ -33,29 +47,32 @@ const EventForm = () => {
     }
   }
 
-
   return (
-    <form onSubmit={handleSubmit} style={{ backgroundColor: "#333", display: "flex", flex: 1, height: "100vh", padding: "20px" }}>
-      <label>Name</label>
-      <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-      
-      <label>Description</label>
-      <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
-      
-      <label>Organizer</label>
-      <input type="text" value={organizer} onChange={(e) => setOrganizer(e.target.value)} />
-      
-      <label>Localization</label>
-      <input type="text" value={localization} onChange={(e) => setLocalization(e.target.value)} />
-      
-      <label>Begin Date</label>
-      <input type="date" value={beginDate} onChange={(e) => setBeginDate(e.target.value)} />
-      
-      <label>End Date</label>
-      <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
-      
-      <button type="submit">Salvar</button>
-    </form>
+    <div className="container container-center">
+      <Header title="Eventos" />
+
+      <form className="form" onSubmit={handleSubmit} >
+        <label>Name</label>
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+
+        <label>Description</label>
+        <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+
+        <label>Organizer</label>
+        <input type="text" value={organizer} onChange={(e) => setOrganizer(e.target.value)} />
+
+        <label>Localization</label>
+        <input type="text" value={localization} onChange={(e) => setLocalization(e.target.value)} />
+
+        <label>Begin Date</label>
+        <input type="date" value={beginDate} onChange={(e) => setBeginDate(e.target.value)} />
+
+        <label>End Date</label>
+        <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+
+        <FooterForm areFieldsValid={areFieldsValid} />
+      </form>
+    </div>
   )
 }
 

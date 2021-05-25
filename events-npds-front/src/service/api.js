@@ -7,7 +7,8 @@ const api = axios.create({
 const token = localStorage.getItem("@events-npds/token");
 
 function onGetCall(config) {
-  return !(config.url.includes("login") || config.url.includes("signup"));
+  const isAuthenticate = config.url.includes("login") || config.url.includes("signup") || config.url.includes("authenticate")
+  return !isAuthenticate;
 }
 
 api.interceptors.request.use(config => {
