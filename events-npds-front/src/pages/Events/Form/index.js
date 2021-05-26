@@ -26,7 +26,7 @@ const EventForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(!areFieldsValid()) {
+    if (!areFieldsValid()) {
       alert('Campos Inválidos');
       return;
     }
@@ -48,30 +48,34 @@ const EventForm = () => {
   }
 
   return (
-    <div className="container container-center">
+    <div className="container">
       <Header title="Eventos" />
 
-      <form className="form" onSubmit={handleSubmit} >
-        <label>Name</label>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+      <main>
+        <div></div>
+        <form className="form" onSubmit={handleSubmit} >
+          <label>Name</label>
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} autoFocus />
 
-        <label>Description</label>
-        <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+          <label>Description</label>
+          <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
 
-        <label>Organizer</label>
-        <input type="text" value={organizer} onChange={(e) => setOrganizer(e.target.value)} />
+          <label>Organizer</label>
+          <input type="text" value={organizer} onChange={(e) => setOrganizer(e.target.value)} />
 
-        <label>Localization</label>
-        <input type="text" value={localization} onChange={(e) => setLocalization(e.target.value)} />
+          <label>Localization</label>
+          <input type="text" value={localization} onChange={(e) => setLocalization(e.target.value)} />
 
-        <label>Begin Date</label>
-        <input type="date" value={beginDate} onChange={(e) => setBeginDate(e.target.value)} />
+          <label>Begin Date</label>
+          <input type="date" value={beginDate} onChange={(e) => setBeginDate(e.target.value)} />
 
-        <label>End Date</label>
-        <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+          <label>End Date</label>
+          <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
 
-        <FooterForm areFieldsValid={areFieldsValid} />
-      </form>
+          <FooterForm areFieldsValid={areFieldsValid} />
+        </form>
+        <div></div>
+      </main>
     </div>
   )
 }

@@ -1,5 +1,7 @@
 import { useHistory } from "react-router";
 
+import './index.css';
+
 const FooterForm = ({areFieldsValid}) => {
   const history = useHistory();
 

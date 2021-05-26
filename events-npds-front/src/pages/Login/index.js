@@ -29,6 +29,7 @@ const Login = () => {
     <div className="login-container">
       <div className="card">
         <h2>Login</h2>
+
         <form onSubmit={handleSubmit}>
           <label>Username</label>
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
@@ -36,7 +37,7 @@ const Login = () => {
           <label>Password</label>
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
-          <button className="btn-login" type="submit" disabled={username == '' || password == ''}>Entrar</button>
+          <button className="btn-login" type="submit" disabled={username === '' || password === ''}>Entrar</button>
         </form>
       </div>
     </div>

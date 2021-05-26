@@ -34,11 +34,16 @@ const Events = () => {
 
   return (
     <div className="container">
-      <Header title="Eventos" link="/events/new"/>
+      <Header title="Eventos" link="/events/new" />
 
-      <dl className="list">
-        { events.map(event => <ListItem item={event} isEvent={true} /> )}
-      </dl>
+      <main>
+        <div />
+        <dl className="list">
+          {events.map(event => <ListItem key={event.id} item={event} isEvent={true} />)}
+        </dl>
+        <div />
+
+      </main>
     </div>
   )
 }

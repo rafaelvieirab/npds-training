@@ -15,6 +15,14 @@ header {
 
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.header-content {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -34,7 +42,7 @@ header {
 }
 
 .btnGoBack:hover img {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .title {
@@ -48,4 +56,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+a:hover img{
+  transform: scale(1.3);
 }

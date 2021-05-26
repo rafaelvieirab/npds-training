@@ -42,7 +42,7 @@ const ScheduleForm = () => {
         beginTime,
         endTime,
         workload
-      }); 
+      });
       history.pop();
     } catch (e) {
       console.log(e)
@@ -52,35 +52,39 @@ const ScheduleForm = () => {
 
   return (
     <div className="container container-center">
-      <Header title="Programação"/>
+      <Header title="Programação" />
 
-      <form className="form" onSubmit={handleSubmit} style={{  }}>
-        <label>Name</label>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+      <main>
+        <div></div>
+        <form className="form" onSubmit={handleSubmit} style={{}}>
+          <label>Name</label>
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} autoFocus />
 
-        <label>Description</label>
-        <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+          <label>Description</label>
+          <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
 
-        <label>Presenter</label>
-        <input type="text" value={presenter} onChange={(e) => setPresenter(e.target.value)} />
+          <label>Presenter</label>
+          <input type="text" value={presenter} onChange={(e) => setPresenter(e.target.value)} />
 
-        <label>Begin Date</label>
-        <input type="date" value={beginDate} onChange={(e) => setBeginDate(e.target.value)} />
+          <label>Begin Date</label>
+          <input type="date" value={beginDate} onChange={(e) => setBeginDate(e.target.value)} />
 
-        <label>End Date</label>
-        <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+          <label>End Date</label>
+          <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
 
-        <label>Begin Time</label>
-        <input type="time" value={beginTime} onChange={(e) => setBeginTime(e.target.value)} />
+          <label>Begin Time</label>
+          <input type="time" value={beginTime} onChange={(e) => setBeginTime(e.target.value)} />
 
-        <label>End Time</label>
-        <input type="time" value={endTime} onChange={(e) => setEndTime(e.target.value)} />
+          <label>End Time</label>
+          <input type="time" value={endTime} onChange={(e) => setEndTime(e.target.value)} />
 
-        <label>Workload</label>
-        <input type="number" value={workload} onChange={(e) => setWorkload(e.target.value)} />
+          <label>Workload</label>
+          <input type="number" value={workload} onChange={(e) => setWorkload(e.target.value)} />
 
-        <FooterForm areFieldsValid={areFieldsValid} />
-      </form>
+          <FooterForm areFieldsValid={areFieldsValid} />
+        </form>
+        <div></div>
+      </main>
     </div>
   )
 }

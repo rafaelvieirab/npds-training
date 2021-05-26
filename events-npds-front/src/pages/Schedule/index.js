@@ -34,10 +34,14 @@ const Schedule = () => {
   return (
     <div className="container">
       <Header title="Schedule" link={`/events/${id}/schedule/new`} />
-      
-      <dl className="list">
-        { schedules.map(schedule => <ListItem item={schedule} /> ) }
-      </dl>
+
+      <main>
+        <div />
+        <dl className="list">
+          {schedules.map(schedule => <ListItem item={schedule} />)}
+        </dl>
+        <div />
+      </main>
     </div>
   );
 }

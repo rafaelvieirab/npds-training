@@ -6,18 +6,11 @@ const api = axios.create({
 
 const token = localStorage.getItem("@events-npds/token");
 
-function onGetCall(config) {
-  const isAuthenticate = config.url.includes("login") || config.url.includes("signup") || config.url.includes("authenticate")
-  return !isAuthenticate;
-}
-
 api.interceptors.request.use(config => {
-  config.headers.Authorization = `Bearer ${token}`;
-  return config;
-}, null,
-  {
-    runWhen: onGetCall
+  if(!(config.url.includes("login") || config.url.includes("signup") || config.url.includes("authenticate"))) {
+    config.headers.Authorization = `Bearer ${token}`;
   }
-);
+  return config;
+});
 
 export default api;
