@@ -35,13 +35,6 @@ body {
   margin-bottom: 0;
 }
 
-/* .container-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #F5F5F5;
-} */
-
 .form {
   max-height: 800px;
   width: 600px;

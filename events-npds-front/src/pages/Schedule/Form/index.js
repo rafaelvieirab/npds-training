@@ -8,13 +8,13 @@ import FooterForm from '../../../components/FooterForm';
 const ScheduleForm = () => {
   const { id } = useParams();
 
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [presenter, setPresenter] = useState("");
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [presenter, setPresenter] = useState('');
   const [beginDate, setBeginDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  const [beginTime, setBeginTime] = useState("");
-  const [endTime, setEndTime] = useState("");
+  const [beginTime, setBeginTime] = useState('');
+  const [endTime, setEndTime] = useState('');
   const [workload, setWorkload] = useState(2);
 
   const history = useHistory();
@@ -30,7 +30,7 @@ const ScheduleForm = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     if (!areFieldsValid) {
-      alert("Campos inválidos");
+      alert('Campos inválidos');
     }
     try {
       await api.post(`/events/${id}/schedule`, {
@@ -45,8 +45,7 @@ const ScheduleForm = () => {
       });
       history.pop();
     } catch (e) {
-      console.log(e)
-      alert(e.response.data.message)
+      alert(e.response.data.message);
     }
   }
 

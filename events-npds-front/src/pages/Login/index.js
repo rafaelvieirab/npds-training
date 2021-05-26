@@ -6,8 +6,8 @@ import './style.css';
 
 const Login = () => {
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const history = useHistory();
 
@@ -15,12 +15,12 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const { data } = await api.post("/authenticate", { username, password });
+      const { data } = await api.post('/authenticate', { username, password });
       const { jwt } = data;
-      localStorage.setItem("@events-npds/token", jwt);
-      history.push("/home")
+      localStorage.setItem('@events-npds/token', jwt);
+      history.push('/home')
     } catch (err) {
-      setPassword("")
+      setPassword('')
       alert(err.response.data.message)
     }
   }

@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
-import api from '../../../service/api'
+import api from '../../../service/api';
 import Header from '../../../components/Header';
 import FooterForm from '../../../components/FooterForm';
 
 const EventForm = () => {
 
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [organizer, setOrganizer] = useState("");
-  const [localization, setLocalization] = useState("");
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [organizer, setOrganizer] = useState('');
+  const [localization, setLocalization] = useState('');
   const [beginDate, setBeginDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
@@ -32,7 +32,7 @@ const EventForm = () => {
     }
 
     try {
-      await api.post("/events", {
+      await api.post('/events', {
         name,
         description,
         organizer,
@@ -40,10 +40,10 @@ const EventForm = () => {
         beginDate,
         endDate
       });
-      history.push("/home")
+      history.push('/home');
     } catch (e) {
-      console.log(e)
-      alert(e.response.data.message)
+      console.log(e);
+      alert(e.response.data.message);
     }
   }
 

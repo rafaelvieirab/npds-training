@@ -1,9 +1,9 @@
-import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import './index.css';
-import arrowLeftIcon from "../../images/arrow-left.svg";
-import addIcon from "../../images/add.svg";
+import arrowLeftIcon from '../../images/arrow-left.svg';
+import addIcon from '../../images/add.svg';
 
 const Header = ({ title, link }) => {
   const history = useHistory();

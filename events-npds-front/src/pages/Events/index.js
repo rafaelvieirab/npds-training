@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 
 import api from '../../service/api'
-
-import '../../global.css';
 import Header from '../../components/Header/index';
 import ListItem from '../../components/ListItem';
+
+import '../../global.css';
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -14,7 +14,7 @@ const Events = () => {
 
   const getEvents = async () => {
     try {
-      const token = localStorage.getItem("@events-npds/token");
+      const token = localStorage.getItem('@events-npds/token');
       const response = await api.get(`/events?pageNumber=${PAGE_NUMBER}&pageSize=${PAGE_SIZE}`,
         {
           headers: {
