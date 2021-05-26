@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
 
 import Login from './pages/Login'
 import Events from './pages/Events'
@@ -6,29 +6,48 @@ import EventsForm from './pages/Events/Form'
 import Schedule from './pages/Schedule';
 import ScheduleForm from './pages/Schedule/Form';
 
+function isAuthenticate() {
+  return localStorage.getItem('@events-npds/token') !== '';
+}
+
+const PublicRoute = (({ children, ...rest }) => {
+  return (
+    isAuthenticate()
+      ? (<Redirect to="/home" />)
+      : (<Route {...rest} > { children}</Route >)
+  );
+});
+
+const PrivateRoute = (({ children, ...rest }) => {
+  return (
+    isAuthenticate()
+      ? (<Route {...rest} > {children}</Route >)
+      : (<Redirect to="/login" />)
+  );
+});
+
 const Routes = () => (
   <Router>
-    <Route exact path="/login">
-      <Login/>
-    </Route>
+    <PublicRoute exact path="/login">
+      <Login />
+    </PublicRoute>
 
-    <Route exact path="/home">
-      <Events/>
-    </Route>
+    <PrivateRoute exact path="/home">
+      <Events />
+    </PrivateRoute>
 
-    <Route exact path="/events/new">
-      <EventsForm/>
-    </Route>
+    <PrivateRoute exact path="/events/new">
+      <EventsForm />
+    </PrivateRoute>
 
-    <Route exact path="/events/:id/schedule">
-      <Schedule/>
-    </Route>
+    <PrivateRoute exact path="/events/:id/schedule">
+      <Schedule />
+    </PrivateRoute>
 
-    <Route exact path="/events/:id/schedule/new">
-      <ScheduleForm/>
-    </Route>
-
+    <PrivateRoute exact path="/events/:id/schedule/new">
+      <ScheduleForm />
+    </PrivateRoute>
   </Router>
-)
+);
 
 export default Routes;
