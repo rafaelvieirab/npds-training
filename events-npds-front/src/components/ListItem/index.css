@@ -1,7 +1,26 @@
-dt, dd {
+li.item-list {
+  width: 100%;
+  border: 1px solid #f0f0f0;
+  list-style-position: outside;
+}
+
+p {
+  text-align: left;
+}
+
+
+li p a {
+  margin: 0;
+  display: block;
+}
+/* dt, dd {
   width: 300px;
   margin-top: 10px;
   font-size: 14px;
+}
+
+dl {
+  border: 1px solid #0F0F0F;
 }
 
 dt a, dt b  {
@@ -13,4 +32,4 @@ dt a, dt b  {
   text-decoration: none;
   color: black;
   font-weight: bold;
-}
+} */

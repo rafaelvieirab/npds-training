@@ -38,11 +38,20 @@ const Events = () => {
 
       <main>
         <div />
-        <dl className="list">
-          {events.map(event => <ListItem key={event.id} item={event} isEvent={true} />)}
-        </dl>
+        {
+          events.length === 0
+          ? (
+              <div className="list">
+                <p>Não há nenhuma programação cadastrada para este evento.</p>
+              </div>
+            )
+          : (
+              <ul className="list">
+                {events.map(event => <ListItem key={event.id} item={event} isEvent={true} />)}
+              </ul>
+            )
+          }
         <div />
-
       </main>
     </div>
   )

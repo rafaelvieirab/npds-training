@@ -34,9 +34,19 @@ const Schedule = () => {
 
       <main>
         <div />
-        <dl className="list">
-          {schedules.map(schedule => <ListItem item={schedule} />)}
-        </dl>
+        {
+          schedules.length === 0
+            ? (
+              <div className="list">
+                <p>Não há nenhuma programação cadastrada para este evento.</p>
+              </div>
+            )
+            : (
+              <ul className="list">
+                {schedules.map(schedule => <ListItem key={schedule.id} item={schedule} />)}
+              </ul>
+            )
+        }
         <div />
       </main>
     </div>
